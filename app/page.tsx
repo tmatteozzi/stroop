@@ -109,22 +109,13 @@ export default function StroopExperiment() {
         setCurrentStimulus(newBlock[0]);
         setStimulusStartTime(performance.now());
 
-        // Cambiar el estímulo a blanco después de 0.75 segundos y registrar respuesta incorrecta si no hay respuesta
+        // Cambiar el estímulo a blanco después de 0.75 segundos
         setTimeout(() => {
           setCurrentStimulus({
             word: 'blanco',
             color: '#ffffff',
             isCongruent: false
           });
-
-          // Registrar respuesta incorrecta si no hay respuesta
-          const timeoutId = setTimeout(() => {
-            if (currentStimulus) {
-              handleResponse(''); // Pasar una tecla vacía para indicar respuesta incorrecta
-            }
-          }, 250);
-
-          return () => clearTimeout(timeoutId);
         }, 750);
       }, 1000);
     },
@@ -167,22 +158,13 @@ export default function StroopExperiment() {
           setCurrentStimulus(currentBlock[nextIndex]);
           setStimulusStartTime(performance.now());
 
-          // Cambiar el estímulo a blanco después de 0.75 segundos y registrar respuesta incorrecta si no hay respuesta
+          // Cambiar el estímulo a blanco después de 0.75 segundos
           setTimeout(() => {
             setCurrentStimulus({
               word: 'blanco',
               color: '#ffffff',
               isCongruent: false
             });
-
-            // Registrar respuesta incorrecta si no hay respuesta
-            const timeoutId = setTimeout(() => {
-              if (currentStimulus) {
-                handleResponse(''); // Pasar una tecla vacía para indicar respuesta incorrecta
-              }
-            }, 250);
-
-            return () => clearTimeout(timeoutId);
           }, 750);
         }, 500);
       } else {
