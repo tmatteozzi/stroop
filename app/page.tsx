@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
-type Color = 'rojo' | 'azul' | 'verde' | 'amarillo';
-type ColorHex = '#ef4444' | '#3b82f6' | '#22c55e' | '#eab308';
+type Color = 'rojo' | 'azul' | 'verde' | 'amarillo' | 'blanco';
+type ColorHex = '#ef4444' | '#3b82f6' | '#22c55e' | '#eab308' | '#ffffff';
 
 interface Stimulus {
   word: Color;
@@ -35,7 +35,8 @@ const colorMap: Record<Color, ColorHex> = {
   rojo: '#ef4444',
   azul: '#3b82f6',
   verde: '#22c55e',
-  amarillo: '#eab308'
+  amarillo: '#eab308',
+  blanco: '#ffffff'
 };
 
 const keyMap: Record<string, Color> = {
@@ -111,7 +112,7 @@ export default function StroopExperiment() {
         // Cambiar el estímulo a blanco después de 0.75 segundos
         setTimeout(() => {
           setCurrentStimulus({
-            word: '',
+            word: 'blanco',
             color: '#ffffff',
             isCongruent: false
           });
@@ -160,7 +161,7 @@ export default function StroopExperiment() {
           // Cambiar el estímulo a blanco después de 0.75 segundos
           setTimeout(() => {
             setCurrentStimulus({
-              word: '',
+              word: 'blanco',
               color: '#ffffff',
               isCongruent: false
             });
