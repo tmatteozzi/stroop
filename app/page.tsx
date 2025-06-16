@@ -107,6 +107,15 @@ export default function StroopExperiment() {
         setShowFixation(false);
         setCurrentStimulus(newBlock[0]);
         setStimulusStartTime(performance.now());
+
+        // Cambiar el estímulo a blanco después de 0.75 segundos
+        setTimeout(() => {
+          setCurrentStimulus({
+            word: '',
+            color: '#ffffff',
+            isCongruent: false
+          });
+        }, 750);
       }, 1000);
     },
     [generateBlock]
@@ -147,6 +156,15 @@ export default function StroopExperiment() {
           setShowFixation(false);
           setCurrentStimulus(currentBlock[nextIndex]);
           setStimulusStartTime(performance.now());
+
+          // Cambiar el estímulo a blanco después de 0.75 segundos
+          setTimeout(() => {
+            setCurrentStimulus({
+              word: '',
+              color: '#ffffff',
+              isCongruent: false
+            });
+          }, 750);
         }, 500);
       } else {
         // Bloque terminado
